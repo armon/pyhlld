@@ -44,7 +44,7 @@ Using pipelining is straightforward as well:
     client = HlldClient("localhost")
 
     # Get or create the pipe set
-    pipe = client.create_set("pipe")
+    pipe = client.create_set("pipe").pipeline()
 
     # Chain multiple add commands
     results = pipe.add("foo").add("bar").add("baz").execute()
