@@ -19,7 +19,7 @@ setup(name='pyhlld',
       url="https://github.com/armon/pyhlld",
       license="MIT License",
       keywords=["hyperloglog", "hll", "hlld", "client"],
-      py_modules=['pybloomd'],
+      py_modules=['pyhlld'],
       classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
