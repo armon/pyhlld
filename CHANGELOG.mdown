@@ -1,3 +1,8 @@
+# 0.1.1
+
+ * Support for list with prefixes
+ * SHA: 3d5661d
+
 # 0.1.0
 
  * Initial Release
