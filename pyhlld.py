@@ -2,7 +2,7 @@
 This module implements a client for the hlld server.
 """
 __all__ = ["HlldError", "HlldConnection", "HlldClient", "HlldSet"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 import logging
 import socket
 import errno
@@ -194,14 +194,18 @@ class HlldClient(object):
         conn = self._server_connection()
         return HlldSet(conn, name, self.hash_keys)
 
-    def list_sets(self):
+    def list_sets(self, prefix=None):
         """
-        Lists all the available sets.
+        Lists all the available sets. Optionally takes a prefix to search for.
         Returns a dictionary of {set_name : set_info}.
         """
         responses = {}
         conn = self._server_connection()
-        conn.send("list")
+        if prefix:
+            cmd = "list %s" % prefix
+        else:
+            cmd = "list"
+        conn.send(cmd)
         resp = conn.readblock()
 
         for line in resp:
