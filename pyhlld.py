@@ -2,7 +2,7 @@
 This module implements a client for the hlld server.
 """
 __all__ = ["HlldError", "HlldConnection", "HlldClient", "HlldSet"]
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 import logging
 import socket
 import errno
@@ -97,6 +97,8 @@ class HlldConnection(object):
             raise HlldError("Did not get block start (%s)! Got '%s'!" % (start, first))
         while True:
             line = self.read()
+            if line == "":
+                raise HlldError("Did not get block end! Got blank response.")
             if line == end:
                 break
             lines.append(line)
