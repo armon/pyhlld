@@ -34,7 +34,7 @@ Using pyhlld is very simple:
 
     # Set a key and check the size
     foobar.add("Test Key!")
-    assert foobar.info()["size"] == 1
+    assert int(foobar.info()["size"]) == 1
 
 Using pipelining is straightforward as well:
 
