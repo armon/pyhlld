@@ -1,5 +1,4 @@
 from setuptools import setup
-import pyhlld
 
 # Get the long description by reading the README
 try:
