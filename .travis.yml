@@ -17,10 +17,10 @@ addons:
   apt:
     sources:
       - build-essential
+      - scons
 before_script:
   - wget https://github.com/armon/hlld/archive/master.tar.gz -O /tmp/hlld.tar.gz
   - tar -xvf /tmp/hlld.tar.gz
-  - pip install SCons
   - export PATH=$PATH:$PWD/hlld-master/
   - cd hlld-master && scons
   - hlld &
