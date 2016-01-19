@@ -1,6 +1,8 @@
 pyhlld
 =========
 
+[![Build Status](https://travis-ci.org/canardleteer/pyhlld.png)](https://travis-ci.org/canardleteer/pyhlld)
+
 pyhlld provides a Python client library to interface with
 hlld servers.
 
@@ -18,6 +20,7 @@ Install
 Download and install from source:
 
     python setup.py install
+
 
 Example
 ------

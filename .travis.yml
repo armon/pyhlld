@@ -1,0 +1,26 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
+  # maintainers to fix their pypy-dev package.
+  - "pypy"
+# command to install dependencies
+install:
+  - pip install .
+  - pip install -r requirements.txt
+# command to run tests
+script: nosetests
+addons:
+  apt:
+    sources:
+      - build-essential
+      - scons
+before_script:
+  - wget https://github.com/armon/hlld/archive/master.tar.gz -O /tmp/hlld.tar.gz
+  - tar -xvf /tmp/hlld.tar.gz
+  - export PATH=$PATH:$PWD/hlld-master/
+  - cd hlld-master && scons
+  - hlld &
+  - cd ..
+  - sleep 10
